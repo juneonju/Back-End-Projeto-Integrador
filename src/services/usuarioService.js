@@ -75,6 +75,38 @@ module.exports = {
                 }
             })
         })
+    },
+    alterarSenha: (id, senhaAtual, novaSenha) => {
+        return new Promise((aceito, rejeitado)=>{
+
+            db.query('SELECT * FROM usuarios WHERE usuarios.id = ? && usuarios.senha = ?', 
+                [id, senhaAtual], 
+                (error, results)=>{
+                    if(error) {
+                        rejeitado(error); 
+                        return; 
+                    }
+                    if (results.length > 0){
+                        db.query('UPDATE usuarios SET senha = ? WHERE id = ?', 
+                        [novaSenha, id], 
+                        (error, results)=>{
+                            if(error) {
+                                rejeitado(error); 
+                                return; 
+                            }
+                            if (results.length > 0){
+                                aceito(results);
+                            }else{
+                                aceito(false)
+                            }
+                        }
+                    );
+                    }else{
+                        aceito(false)
+                    }
+                }
+            );
+        });
     }
 
 };

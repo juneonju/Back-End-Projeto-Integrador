@@ -115,5 +115,24 @@ module.exports = {
             json.error = 'Falha ao logar, revise os dados e tente novamente'
         }
         res.json(json);
+    },
+
+    alterarSenha: async(req, res) => {
+        let json = {error:"", result:{}};
+
+        let id = req.body.id;
+        let senhaAtual = req.body.senhaAtual;
+        let novaSenha = req.body.novaSenha;
+
+        if(senhaAtual && novaSenha){
+            await usuarioService.alterarSenha(id, senhaAtual, novaSenha);
+            json.result = {
+                novaSenha: novaSenha
+            };
+        }else{
+            json.error = "campos não enviados"
+        }
+
+        res.json(json);
     }
 }

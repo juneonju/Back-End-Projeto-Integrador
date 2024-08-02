@@ -11,7 +11,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-O projeto de site tem como objetivo criar uma plataforma pessoal que integra de forma eficaz os perfis de redes sociais do usuário, oferecendo uma experiência de navegação fluida e interativa.
+O projeto de backend CRUD visa desenvolver uma API escalável para gerenciar dados com operações de criar, ler, atualizar e excluir registros. A API incluirá autenticação e autorização para segurança, usará um banco de dados adequado, e implementará validação de dados e proteção contra injeções SQL. A solução será documentada detalhadamente e terá testes automatizados para garantir desempenho, segurança e estabilidade, proporcionando uma ferramenta eficiente e fácil de usar para manipulação de dados.
 
 
 ---
